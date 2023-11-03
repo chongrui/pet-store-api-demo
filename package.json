@@ -1,26 +1,79 @@
 {
   "name": "pet-store-api-demo",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Chongrui Duan"
+  },
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/user-event": "^14.4.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@heroicons/react": "^2.0.18",
+    "@material-tailwind/react": "^2.1.4",
+    "concurrently": "^8.2.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "cypress": "^13.4.0",
+    "express": "^4.18.1",
+    "http-proxy": "^1.18.1",
+    "miragejs": "^0.1.48",
+    "react-router-dom": "^6.18.0",
+    "react-test-renderer": "^18.2.0",
+    "resize-observer-polyfill": "^1.5.1",
+    "start-server-and-test": "^2.0.1",
+    "tailwindcss": "^3.3.5"
+  },
+  "overrides": {
+    "nth-check": "2.1.1",
+    "postcss": "8.4.31"
+  },
   "scripts": {
     "start": "react-scripts start",
+    "start:nomock": "REACT_APP_ENV=production react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "server": "node server/server",
+    "dev": "concurrently --kill-others \"PORT=5000 npm run server\" \"PORT=4000 DANGEROUSLY_DISABLE_HOST_CHECK=true npm run start:nomock\"",
+    "test": "react-scripts test --coverage --watchAll",
+    "test:ci": "CI=true react-scripts test --coverage",
+    "e2e:open": "cypress open",
+    "e2e:run": "cypress run",
+    "e2e:ci": "start-server-and-test start http-get://localhost:3000 e2e:run"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/src/**/*.{spec,test}.{js,ts,jsx,tsx}"
+    ],
+    "resetMocks": true,
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{js,ts,jsx,tsx}",
+      "!<rootDir>/node_modules/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    },
+    "coverageReporters": [
+      "cobertura",
+      "text"
     ]
   },
   "browserslist": {
