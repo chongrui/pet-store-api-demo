@@ -1,4 +1,4 @@
-describe('The Home Page', () => {
+describe('The Login Page', () => {
   beforeEach(() => {
     cy.exec('npm run start');
   });

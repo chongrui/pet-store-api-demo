@@ -43,7 +43,7 @@ export function NavBar() {
             </Link>
             <Typography
               variant="small"
-              className="font-bold cursor-auto text-blue-gray-900 transition-none hover:text-blue-gray-900"
+              className="font-bold capitalize cursor-auto text-blue-gray-900 transition-none hover:text-blue-gray-900"
             >
               {page === 'pets' ? 'Pet Inventory' : page}
             </Typography>
@@ -62,6 +62,7 @@ export function NavBar() {
             <IconButton
               variant="text"
               className="flex xl:hidden text-blue-gray-900"
+              onClick={() => logoutHandler()}
             >
               <ArrowRightOnRectangleIcon className="h-5 w-5 text-blue-gray-900" />
             </IconButton>

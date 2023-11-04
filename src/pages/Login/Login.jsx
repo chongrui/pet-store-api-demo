@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../utilities/hooks/useAuth";
@@ -53,7 +55,7 @@ function Login() {
             </CardHeader>
             <CardBody>
               <form className="flex flex-col gap-4">
-                <Input type="text" label="Username" name="username" size="lg" value={userName} onChange={(event) => setUserName(event.target.value)} />
+                <Input type="text" label="Username" name="username" autoFocus size="lg" value={userName} onChange={(event) => setUserName(event.target.value)} />
                 <Input type="password" label="Password" name="password" size="lg" autoComplete="on" value={password} onChange={(event) => setPassword(event.target.value)} />
               </form>
             </CardBody>

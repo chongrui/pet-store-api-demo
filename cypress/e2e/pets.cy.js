@@ -1,4 +1,4 @@
-describe('The Home Page', () => {
+describe('The Pets Page', () => {
   beforeEach(() => {
     cy.exec('npm run start');
   });
