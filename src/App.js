@@ -24,6 +24,7 @@ function App() {
                 <Route path="/orders" element={<ProtectedRoute><OrdersPage /></ProtectedRoute>} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/" element={<Navigate replace to="/pets" />} />
+                <Route path="*" element={<Navigate to="/pets" />} />
               </Routes>
             </Suspense>
           </div>

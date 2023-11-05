@@ -32,30 +32,28 @@ There are two primary methods to run this app locally for development purposes:
 
 This project utilizes [Mirage.js](https://miragejs.com/) to seed mock data, which is derived from the sample data provided by the [Swagger Pet Store API's Docker image](https://github.com/swagger-api/swagger-petstore#to-run-via-docker). When the app is executed in development mode, this mock data is automatically seeded using the Webpack development server.
 
-To run the app with built-in mock data, execute the following command:
+To run the app with built-in mock data, execute the following command (runs at **http://127.0.0.1:3000** by default):
 ```
 npm run start
 ```
 
 ### Run With a Real Backend Server Locally
 
-This project also supports integration with a real backend server locally. It includes an [Express](https://expressjs.com/) server setup, which is configured to forward all network requests starting with `/api/v3/` to `http://127.0.0.1:8080` (this default address can be modified through the environment variable `SWAGGER_PET_STORE_API_SERVER_ADDRESS`).
+This project also supports integration with a real backend server locally. It includes an [Express](https://expressjs.com/) server setup, which is configured to forward all network requests starting with **/api/v3/** to **http://127.0.0.1:8080** (this default address can be modified through the environment variable **SWAGGER_PET_STORE_API_SERVER_ADDRESS**).
 
-Furthermore, a `proxy` field has been added to the `package.json` file. This instructs the Webpack development server to proxy any non-text/html requests to the aforementioned Express server when in development mode. For additional information on this configuration, refer to the [official documentation](https://create-react-app.dev/docs/proxying-api-requests-in-development/).
+Furthermore, a **proxy** field has been added to the **package.json** file. This instructs the Webpack development server to proxy any non-text/html requests to the aforementioned Express server when in development mode. For additional information on this configuration, refer to the [official documentation](https://create-react-app.dev/docs/proxying-api-requests-in-development/).
 
 Combining these two features enables you to take advantage of the Webpack development server's hot reload capability while directing the app to a live backend server, instead of relying on mock data.
 
 To run the app with a real backend server locally, follow these steps:
 
-1. Start the Swagger Pet Store API server at `http://127.0.0.1:8080`. Here's how:
+1. Start the Swagger Pet Store API server locally via Docker or Maven at **http://127.0.0.1:8080**. For detailed instructions, visit the [Swagger Pet Store GitHub repository](https://github.com/swagger-api/swagger-petstore/tree/master#to-run-with-maven).
 
-   - The Swagger Pet Store API server can be executed locally via Docker or Maven. For detailed instructions, visit the [Swagger Pet Store GitHub repository](https://github.com/swagger-api/swagger-petstore/tree/master#to-run-with-maven).
+   - Note: by default, the Swagger Pet Store API server runs at **http://127.0.0.1:8080**.
 
-   - Please note: by default, the Swagger Pet Store API server runs on `http://127.0.0.1:8080`.
+2. Launch the development environment by executing `npm run dev`. This command sets everything else up automatically and runs at **http://127.0.0.1:4000**.
 
-2. Launch the development environment by executing `npm run dev`. This command sets everything else up automatically.
-
-   - In case you run the Swagger Pet Store API server on a different address or port rather than `http://127.0.0.1:8080`, provide the correct server address by setting the `SWAGGER_PET_STORE_API_SERVER_ADDRESS` environment variable prior to running the command.
+   - Note: In case you run the Swagger Pet Store API server on a different address or port rather than **http://127.0.0.1:8080**, provide the correct server address by setting the **SWAGGER_PET_STORE_API_SERVER_ADDRESS** environment variable prior to running the command.
 
 ## Production Deployment
 
@@ -86,16 +84,15 @@ To test this locally, perform the following steps:
 
 1. Ensure that the app is built using `npm run build` as described above.
 
-2. Start the Swagger Pet Store API server at `http://127.0.0.1:8080`. Here's how:
-   - The Swagger Pet Store API server can be executed locally via Docker or Maven. For detailed instructions, visit the [Swagger Pet Store GitHub repository](https://github.com/swagger-api/swagger-petstore/tree/master#to-run-with-maven).
+2. Start the Swagger Pet Store API server locally via Docker or Maven at **http://127.0.0.1:8080**. For detailed instructions, visit the [Swagger Pet Store GitHub repository](https://github.com/swagger-api/swagger-petstore/tree/master#to-run-with-maven).
 
-   - Please note: by default, the Swagger Pet Store API server runs on `http://127.0.0.1:8080`.
+   - Note: by default, the Swagger Pet Store API server runs at **http://127.0.0.1:8080**.
 
-2. Start the included Express server by running:
+2. Start the included Express server (runs at **http://127.0.0.1:4000** by default) by running:
    ```
    npm run server
    ```
-   - In case you run the Swagger Pet Store API server on a different address or port rather than `http://127.0.0.1:8080`, provide the correct server address by setting the `SWAGGER_PET_STORE_API_SERVER_ADDRESS` environment variable prior to running the command..
+   - Note: In case you run the Swagger Pet Store API server on a different address or port rather than **http://127.0.0.1:8080**, provide the correct server address by setting the **SWAGGER_PET_STORE_API_SERVER_ADDRESS** environment variable prior to running the command.
 
 By following these steps, your React app should be up and running in a production environment.
 
@@ -127,7 +124,7 @@ This project uses [Cypress](https://docs.cypress.io/guides/overview/why-cypress#
 
 Execute `npm run e2e:open` to open Cypress in interactive mode. Choose "E2E Testing", select your browser, and run your tests from the "Specs" tab.
 
-Remember to terminate the process in the terminal with "Ctrl+C" (or "Command+C" on macOS) after completion to avoid background processes.
+Remember to terminate the process in the terminal with "Ctrl+C" after completion to avoid background processes.
 
 #### Continuous Integration Mode
 
