@@ -21,7 +21,7 @@ To install the React app, follow these steps:
    npm install
    ```
 
-After successfully installing the dependencies, you should be able to run and test the app.
+After successfully installing the dependencies, you should be able to run and test the app (please note that you can use any username and password you like to log into the app).
 
 ## Local Development
 
